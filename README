@@ -1,0 +1,14 @@
+Aarch64 ghc crash
+=================
+
+1. Install nix
+2. Create a nix-shell with cabal and GHC with `nix-shell -p haskell.compiler.ghc98 cabal-install`
+3. run `cabal run clash`
+4. See the following error:
+
+```
+clash: internal error: ASSERTION FAILED: file rts/linker/elf_reloc_aarch64.c, line 99
+
+    (GHC version 9.8.1 for aarch64_unknown_linux)
+    Please report this as a GHC bug:  https://www.haskell.org/ghc/reportabug
+```
