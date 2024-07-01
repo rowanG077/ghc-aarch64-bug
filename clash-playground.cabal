@@ -45,6 +45,7 @@ common common-options
     -- Prelude isn't imported by default as Clash offers Clash.Prelude
     NoImplicitPrelude
   ghc-options:
+    -debug
     -Wall -Wcompat
     -haddock
 
@@ -91,11 +92,13 @@ library
 -- Builds the executable 'clash', with clash-playground project in scope
 executable clash
   main-is: bin/Clash.hs
+  ghc-options: -debug -rtsopts
   default-language: Haskell2010
   Build-Depends: base, clash-ghc, clash-playground
 
 -- Builds the executable 'clashi', with clash-playground project in scope
 executable clashi
   main-is: bin/Clashi.hs
+  ghc-options: -debug -rtsopts
   default-language: Haskell2010
   build-depends: base, clash-ghc, clash-playground

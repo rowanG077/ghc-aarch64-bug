@@ -14,6 +14,12 @@ let
         ghc965 = pkgs.haskell.compiler.ghc965.overrideAttrs (old: {
           pname = "${old.pname}-patched";
           patches = (old.patches or []) ++ [ ./aarch64-reloc.patch ];
+          hadrianFlags = [
+            "--flavour=release+split_sections+debug_stage1_ghc+debug_ghc+debug_info"
+            "--bignum=gmp"
+            "--docs=no-sphinx-pdfs"
+          ];
+          dontStrip = true;
         });
       };
     };
